@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 })
 export class FlashCardComponent {
   FlashCardArray: any[] = [];
+  currentCardIndex: number = 0;
   isResultLoaded = false;
   isUpdateFormActive = false;
 
@@ -29,7 +30,28 @@ export class FlashCardComponent {
         this.isResultLoaded = true;
         console.log(resultData);
         this.FlashCardArray = resultData;
+        if (this.FlashCardArray.length > 0) {
+          this.currentCardIndex = 0;
+        }
       });
+  }
+
+  get currentFlashCard() {
+    return this.FlashCardArray[this.currentCardIndex];
+  }
+
+  // Card Anterior
+  prevCard() {
+    if (this.currentCardIndex > 0) {
+      this.currentCardIndex--;
+    }
+  }
+
+  // Card Posterior
+  nextCard() {
+    if (this.currentCardIndex < this.FlashCardArray.length - 1) {
+      this.currentCardIndex++;
+    }
   }
 
   register() {

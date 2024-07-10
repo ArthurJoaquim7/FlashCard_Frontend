@@ -1,14 +1,13 @@
 .container {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    font-family: sans-serif;
-    background-color: #E8E8E8;
+    justify-content: center;
+    flex-direction: column;
+    overflow-x: hidden;
 }
 
 // =========FORM
 .form {
-    position: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,11 +15,10 @@
     width: 400px;
     padding: 10px;
     height: 100%;
-    top: 0;
-    left: 0;
     gap: 10px;
-    border: 1px solid #fff;
-    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 10px / 30px;
 }
 
 .input {
@@ -34,27 +32,23 @@
     border: none;
     line-height: 1.15;
     box-shadow: 0px 10px 20px -18px;
-  }
-  
-  input:focus {
+}
+
+input:focus {
     border-bottom: 2px solid #5b5fc7;
     border-radius: 4px 4px 2px 2px;
-  }
-  
-  input:hover {
-    outline: 1px solid lightgrey;
-  }
+}
 
-.btn {
-    background-color: red;
+input:hover {
+    outline: 1px solid lightgrey;
 }
 
 
-// === BUTTON
+// === BUTTON form
 .button {
     color: #fff;
     cursor: pointer;
-    border: 1px solid #000;
+    border: 1px solid #fff;
     border-radius: 4px;
     padding: 0.8em 2em;
     background: #000;
@@ -64,17 +58,15 @@
 .button:hover {
     color: #000;
     transform: translate(-0.25rem, -0.25rem);
-    background: transparent;
-    box-shadow: 0.25rem 0.25rem #000;
+    background: #fff;
+    border: 1px solid #000;
+    box-shadow: 0.25rem 0.25rem #fff;
 }
 
 .button:active {
     transform: translate(0);
     box-shadow: none;
 }
-
-
-
 
 
 // ========= CARDS
@@ -87,32 +79,7 @@
     padding: 50px 0;
 }
 
-.btnDelete {
-    width: 32px;
-    opacity: 0;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 10px / 30px;
-    padding: 10px;
-    transition: 0.2s ease-in-out;
-    background: #c99daf;
-   
-}
-
-.btnDelete:hover {
-    color: #000;
-    transform: translate(-0.25rem, -0.25rem);
-    background: #8a2f2f;
-}
-
-.btnDelete:active {
-    transform: translate(0);
-    box-shadow: none;
-}
-
+// == FLIP CARD
 
 .flip-card:hover .btnDelete {
     opacity: 1;
@@ -150,16 +117,16 @@
 
 .flip-card-front,
 .flip-card-back {
-    box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
     position: absolute;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     width: 100%;
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    border: 1px solid #fff;
+    border: 1px solid #000;
     border-radius: 10px / 30px;
 }
 
@@ -168,7 +135,7 @@
 }
 
 .flip-card-back {
-    background-color: #000;
+    background-color: #005392;
     transform: rotateY(180deg);
 }
 
@@ -180,11 +147,74 @@
     color: #fff;
 }
 
-@media screen and (max-width: 1176px) {
-    .form{
-        position: relative;
+// ====BTN CARD
+.btnDelete {
+    width: 32px;
+    opacity: 0;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 10px / 30px;
+    padding: 10px;
+    transition: 0.2s ease-in-out;
+    background: #000;
+
+}
+
+.btnDelete:hover {
+    color: #000;
+    transform: translate(-0.25rem, -0.25rem);
+    background: #8a2f2f;
+}
+
+.btnDelete:active {
+    transform: translate(0);
+    box-shadow: none;
+}
+
+
+
+// === BUTTONS PREV AND NEXT
+.btnDiv {
+    display: flex;
+    gap: 10px;
+}
+
+.btnCard {
+    width: 100%;
+    right: 20px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 10px / 30px;
+    padding: 10px;
+    transition: 0.2s ease-in-out;
+    background: #000;
+}
+
+.btnCard:hover {
+    color: #000;
+    transform: translate(-0.25rem, -0.25rem);
+    background: #fff;
+    box-shadow: 0.25rem 0.25rem #000;
+}
+
+.btnCard:active {
+    transform: translate(0);
+    box-shadow: none;
+}
+
+@media screen and (max-width: 600px) {
+    .form {
+        width: 90%;
     }
-    .container{
-        flex-direction: column;
+
+    .flip-card {
+        width: 90vw;
+    }
+
+    .input {
+        width: 250px;
     }
 }

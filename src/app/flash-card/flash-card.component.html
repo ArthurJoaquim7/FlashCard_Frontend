@@ -5,32 +5,33 @@
             <input type="text" [(ngModel)]="front" [ngModelOptions]="{standalone: true}" class="input" id="front"
                 placeholder="Frente">
         </div>
-
         <div class="form-group">
             <input type="text" [(ngModel)]="back" [ngModelOptions]="{standalone: true}" class="input" id="back"
                 placeholder="Verso">
         </div>
-
         <button type="submit" class="button" (click)="save()">Feito</button>
-
     </form>
-
     <!-- LOAD -->
     <div class="div">
         <h1 *ngIf="!isResultLoaded">Carregando</h1>
     </div>
     <!-- CARDS -->
     <div class="card">
-        <div class="flip-card" *ngFor="let FlashCardItem of FlashCardArray">
-            <div class="flip-card-inner" (click)="setUpdate(FlashCardItem)">
+        <div class="flip-card" *ngIf="FlashCardArray.length > 0">
+            <div class="flip-card-inner" (click)="setUpdate(currentFlashCard)">
                 <div class="flip-card-front">
-                    <p class="front">{{FlashCardItem.front }}</p>
+                    <p class="front">{{currentFlashCard.front}}</p>
                 </div>
                 <div class="flip-card-back">
-                    <p class="back">{{FlashCardItem.back }}</p>
+                    <p class="back">{{currentFlashCard.back}}</p>
                 </div>
             </div>
-            <img src="assets/img/del.png"alt="delete" class="btnDelete" (click)="setDelete(FlashCardItem)">
+            <img src="assets/img/del.png" alt="delete" class="btnDelete" (click)="setDelete(currentFlashCard)">
         </div>
+    </div>
+    <!-- BTN CARDS -->
+    <div class="btnDiv">
+        <button (click)="prevCard()" class="btnCard">Anterior</button>
+        <button (click)="nextCard()" class="btnCard">Próximo</button>
     </div>
 </div>
