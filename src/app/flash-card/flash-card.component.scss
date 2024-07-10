@@ -1,0 +1,190 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: sans-serif;
+    background-color: #E8E8E8;
+}
+
+// =========FORM
+.form {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    padding: 10px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    gap: 10px;
+    border: 1px solid #fff;
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+
+.input {
+    width: 350px;
+    background-color: #f5f5f5;
+    color: #242424;
+    padding: .15rem .5rem;
+    min-height: 40px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    line-height: 1.15;
+    box-shadow: 0px 10px 20px -18px;
+  }
+  
+  input:focus {
+    border-bottom: 2px solid #5b5fc7;
+    border-radius: 4px 4px 2px 2px;
+  }
+  
+  input:hover {
+    outline: 1px solid lightgrey;
+  }
+
+.btn {
+    background-color: red;
+}
+
+
+// === BUTTON
+.button {
+    color: #fff;
+    cursor: pointer;
+    border: 1px solid #000;
+    border-radius: 4px;
+    padding: 0.8em 2em;
+    background: #000;
+    transition: 0.2s;
+}
+
+.button:hover {
+    color: #000;
+    transform: translate(-0.25rem, -0.25rem);
+    background: transparent;
+    box-shadow: 0.25rem 0.25rem #000;
+}
+
+.button:active {
+    transform: translate(0);
+    box-shadow: none;
+}
+
+
+
+
+
+// ========= CARDS
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 150px;
+    padding: 50px 0;
+}
+
+.btnDelete {
+    width: 32px;
+    opacity: 0;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 10px / 30px;
+    padding: 10px;
+    transition: 0.2s ease-in-out;
+    background: #c99daf;
+   
+}
+
+.btnDelete:hover {
+    color: #000;
+    transform: translate(-0.25rem, -0.25rem);
+    background: #8a2f2f;
+}
+
+.btnDelete:active {
+    transform: translate(0);
+    box-shadow: none;
+}
+
+
+.flip-card:hover .btnDelete {
+    opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}
+
+.flip-card {
+    cursor: pointer;
+    position: relative;
+    background-color: transparent;
+    width: 600px;
+    height: 400px;
+    perspective: 1000px;
+}
+
+.title {
+    font-size: 1.5em;
+    font-weight: 900;
+    text-align: center;
+    margin: 0;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border: 1px solid #fff;
+    border-radius: 10px / 30px;
+}
+
+.flip-card-front {
+    background-color: #000;
+}
+
+.flip-card-back {
+    background-color: #000;
+    transform: rotateY(180deg);
+}
+
+// =====
+.front,
+.back {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}
+
+@media screen and (max-width: 1176px) {
+    .form{
+        position: relative;
+    }
+    .container{
+        flex-direction: column;
+    }
+}
